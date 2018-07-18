@@ -1,9 +1,21 @@
-node {
-	stage (‘Build’ {
-	     sh 'mvn install'
-	}
-	stage (‘Test’) {
-	     sh 'deploy'
-	}
-}
+pipeline {
+    agent any
 
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+}
