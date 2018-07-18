@@ -1,20 +1,9 @@
-node{
- agent any
-  stages{
-    stage('checkout'){
-         steps{
-               checkout scm
-                              }
-                  }
-     stage('build'){
-           steps{
-            sh 'mvn install'
-                               }
-                      }
-         }
-    }
-
-
-
-
+node {
+	stage (‘Build’ {
+	     sh 'mvn install'
+	}
+	stage (‘Test’) {
+	     sh 'deploy'
+	}
+}
 
